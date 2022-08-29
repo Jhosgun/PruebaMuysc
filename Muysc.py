@@ -70,12 +70,13 @@ class Mute(object):
         self.points = points 
         self.regionPoints = region
 
+        self.downloadData()
         self.elevation()
 
-    def downloadData(self,pathStorage):
+    def downloadData(self):
         # Path where topography data will be storage
-        path = pathStorage
-        os.chdir(path=path)
+        path = '/home/jorge/Desktop/PruebaMuysc/TopographyData/'
+        os.chdir(path)
 
 
         def downloadData(regionPoints):
@@ -83,27 +84,27 @@ class Mute(object):
             """
             if regionPoints[0] < 0:
                 A = 'S'
-                Lat1 = str(abs(int(regionPoints[0]+1))).zfill(2)
+                Lat1 = str(abs(int(regionPoints[0]-1))).zfill(2)
             else:
                 A = 'N'
                 Lat1 = str(abs(int(regionPoints[0]))).zfill(2)
 
             if regionPoints[1] < 0:
-                Lat2 = str(abs(int(regionPoints[1]+1))).zfill(2)
+                Lat2 = str(abs(int(regionPoints[1]-1))).zfill(2)
                 B = 'S'
             else:
                 B = 'N'
                 Lat2 = str(abs(int(regionPoints[1]))).zfill(2)
             
             if regionPoints[2] < 0:
-                Log1 = str(abs(int(regionPoints[2]+1))).zfill(3)
+                Log1 = str(abs(int(regionPoints[2]-1))).zfill(3)
                 C = 'W'
             else:
                 C = 'E'
                 Log1 = str(abs(int(regionPoints[2]))).zfill(3)
 
             if regionPoints[3] < 0:
-                Log2 = str(abs(int(regionPoints[3]+1))).zfill(3)
+                Log2 = str(abs(int(regionPoints[3]-1))).zfill(3)
                 D = 'W'
             else:
                 D = 'E'
@@ -151,6 +152,7 @@ class Mute(object):
         for i in downloadData(self.regionPoints):
             downloadLink = 'http://step.esa.int/auxdata/dem/SRTMGL1/'+i
             download_file(downloadLink)   
+        
         
 
 
