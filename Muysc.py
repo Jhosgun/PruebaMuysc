@@ -83,30 +83,38 @@ class Mute(object):
             """
             if regionPoints[0] < 0:
                 A = 'S'
+                Lat1 = str(abs(int(regionPoints[0]+1))).zfill(2)
             else:
                 A = 'N'
+                Lat1 = str(abs(int(regionPoints[0]))).zfill(2)
 
             if regionPoints[1] < 0:
+                Lat2 = str(abs(int(regionPoints[1]+1))).zfill(2)
                 B = 'S'
             else:
                 B = 'N'
+                Lat2 = str(abs(int(regionPoints[1]))).zfill(2)
             
             if regionPoints[2] < 0:
+                Log1 = str(abs(int(regionPoints[2]+1))).zfill(3)
                 C = 'W'
             else:
                 C = 'E'
+                Log1 = str(abs(int(regionPoints[2]))).zfill(3)
 
             if regionPoints[3] < 0:
+                Log2 = str(abs(int(regionPoints[3]+1))).zfill(3)
                 D = 'W'
             else:
                 D = 'E'
+                Log2 = str(abs(int(regionPoints[3]))).zfill(3)
+
 
             # Calculate of decimals regions
-            Lat1 = str(abs(int(regionPoints[0]))).zfill(2)
-            Lat2 = str(abs(int(regionPoints[1]))).zfill(2)
-            Log1 = str(abs(int(regionPoints[2]))).zfill(3)
-            Log2 = str(abs(int(regionPoints[3]))).zfill(3)
-
+            
+            
+           
+            
 
             # Conditions of files
             if A+Lat1 == B+Lat2 and C+Log1 == D+Log2:
