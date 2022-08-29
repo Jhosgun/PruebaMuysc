@@ -69,12 +69,12 @@ class Mute(object):
         self.cmap = cmap
         self.points = points 
         self.regionPoints = region
-        self.downloadData()
+
         self.elevation()
 
-    def downloadData(self):
+    def downloadData(self,pathStorage):
         # Path where topography data will be storage
-        path = 'C:/Users/Jorge/Desktop/MUYSC0.1/TopographyData'
+        path = pathStorage
         os.chdir(path=path)
 
 
@@ -141,7 +141,7 @@ class Mute(object):
 
 
         for i in downloadData(self.regionPoints):
-            downloadLink = 'http://step.esa.int/auxdata/dem/SRTMGL1/'+i+'.SRTMGL1.hgt.zip'
+            downloadLink = 'http://step.esa.int/auxdata/dem/SRTMGL1/'+i
             download_file(downloadLink)   
         
 
