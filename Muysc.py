@@ -70,15 +70,13 @@ class Mute(object):
         self.points = points 
         self.regionPoints = region
 
-        self.downloadData()
-        self.elevation()
+        
 
-    def downloadData(self):
+    def downloadData(self,path):
         # Path where topography data will be storage
-        path = '/home/jorge/Desktop/PruebaMuysc/TopographyData/'
         os.chdir(path)
 
-
+        
         def downloadData(regionPoints):
             """ This function download the data
             """
